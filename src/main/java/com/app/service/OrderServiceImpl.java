@@ -2,6 +2,8 @@ package com.app.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.app.entities.Address;
 import com.app.entities.Order;
 import com.app.entities.User;
@@ -9,8 +11,13 @@ import com.app.exception.OrderException;
 
 public class OrderServiceImpl implements OrderService {
 
+	@Autowired
 	private CartRepo cartRepo;
+	
+	@Autowired
 	private CartItemService cartItemService;
+	
+	@Autowired
 	private ProductService productService;
 	
 	@Override
