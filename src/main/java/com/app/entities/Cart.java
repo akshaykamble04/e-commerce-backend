@@ -13,8 +13,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
+import lombok.Data;
 
 @Entity
+@Data
 public class Cart {
 	
 	@Id
@@ -28,5 +30,14 @@ public class Cart {
 	@OneToMany(mappedBy = "cart",cascade = CascadeType.ALL,orphanRemoval = true)
 	@Column(name = "cart_items")
 	private Set<CartItem> cartItems = new HashSet<>();
+	
+	@Column(name = "total_price")
+	private double totalPrice;
+	
+	private int totalItem;
+	
+	private int totalDiscountedPrice;
+	
+	private int discount;
 
 }
