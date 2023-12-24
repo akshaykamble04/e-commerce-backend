@@ -8,6 +8,7 @@ import com.app.entities.Address;
 import com.app.entities.Order;
 import com.app.entities.User;
 import com.app.exception.OrderException;
+import com.app.repositories.CartRepo;
 
 public class OrderServiceImpl implements OrderService {
 
@@ -15,7 +16,7 @@ public class OrderServiceImpl implements OrderService {
 	private CartRepo cartRepo;
 	
 	@Autowired
-	private CartItemService cartItemService;
+	private CartService cartItemService;
 	
 	@Autowired
 	private ProductService productService;
