@@ -26,10 +26,6 @@ import lombok.ToString;
 
 
 @Entity
-
-
-
-
 public class User {
 	
 	@Id
@@ -179,13 +175,13 @@ public class User {
 		this.createdAt = createdAt;
 	}
 
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", password=" + password
-				+ ", email=" + email + ", role=" + role + ", mobile=" + mobile + ", address=" + address
-				+ ", paymentInformation=" + paymentInformation + ", ratings=" + ratings + ", reviews=" + reviews
-				+ ", createdAt=" + createdAt + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", password=" + password
+//				+ ", email=" + email + ", role=" + role + ", mobile=" + mobile + ", address=" + address
+//				+ ", paymentInformation=" + paymentInformation + ", ratings=" + ratings + ", reviews=" + reviews
+//				+ ", createdAt=" + createdAt + "]";
+//	}
 	
 	
 	
