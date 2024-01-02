@@ -1,7 +1,6 @@
 package com.app.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -16,11 +15,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.config.JwtProvider;
+import com.app.entities.Cart;
 import com.app.entities.User;
 import com.app.exception.UserException;
 import com.app.repositories.UserRepo;
 import com.app.request.LoginRequest;
 import com.app.response.AuthResponse;
+import com.app.service.CartService;
 import com.app.service.CustomUserServiceImplementation;
 
 @RestController
@@ -38,6 +39,9 @@ public class AuthController {
 	
 	@Autowired
 	private CustomUserServiceImplementation customUserService;
+	
+	@Autowired
+	private CartService cartService;
 	
 	@PostMapping("/signup")
 	public ResponseEntity<AuthResponse> createUserHandler(@RequestBody User user) throws UserException {
@@ -60,6 +64,7 @@ public class AuthController {
 		createdUser.setLastName(lastName);
 		User savedUser = userRepo.save(createdUser);
 		 
+		Cart cart = cartService.createCart(savedUser);
 		Authentication authentication =new UsernamePasswordAuthenticationToken(savedUser.getEmail(), savedUser.getPassword());
 		SecurityContextHolder.getContext().setAuthentication(authentication);
 		

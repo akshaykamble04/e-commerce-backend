@@ -3,6 +3,7 @@ package com.app.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.app.entities.Address;
 import com.app.entities.Order;
@@ -10,6 +11,7 @@ import com.app.entities.User;
 import com.app.exception.OrderException;
 import com.app.repositories.CartRepo;
 
+@Service
 public class OrderServiceImpl implements OrderService {
 
 	@Autowired

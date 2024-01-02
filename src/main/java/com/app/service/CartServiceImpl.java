@@ -1,6 +1,7 @@
 package com.app.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.app.entities.Cart;
 import com.app.entities.CartItem;
@@ -10,6 +11,7 @@ import com.app.exception.ProductException;
 import com.app.repositories.CartRepo;
 import com.app.request.AddItemRequest;
 
+@Service
 public class CartServiceImpl implements CartService {
 
 	@Autowired
